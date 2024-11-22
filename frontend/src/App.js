@@ -6,6 +6,8 @@ import Login from './pages/login';
 import Signup from "./pages/signup";
 import CreatePartyPage from "./pages/createParty";
 import ProfilePage from "./pages/auth/profile";
+import PartyList from "./pages/listPartys";
+import PartyDetailsPage from "./pages/partyDetails";
 function App() {
     return (
         <div className="App">
@@ -18,6 +20,8 @@ function App() {
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/createParty" element={<CreatePartyPage />} />
                     <Route path="/auth/profile" element={<ProfilePage />} />
+                    <Route path="/listPartys" element={<PartyList />} />
+                    <Route path="/party/:id" element={<PartyDetailsPage />} />
                 </Routes>
             </Router>
         </div>

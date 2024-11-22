@@ -8,7 +8,7 @@ import {
 } from "../components/ui/card";
 
 export default function PartyList() {
-    const [parties, setParties] = useState([
+    const [parties] = useState([
         {
             id: 1,
             name: "Soirée Monopoly",
@@ -65,6 +65,9 @@ export default function PartyList() {
                                 <span className="font-semibold">Places disponibles :</span> {party.spots}
                             </p>
                             <p className="mt-2 text-gray-600">{party.description}</p>
+                            <button to={`/party/${party.id}`} className="text-blue-500 hover:underline">
+                                Voir les détails
+                            </button>
                         </CardContent>
                     </Card>
                 ))}

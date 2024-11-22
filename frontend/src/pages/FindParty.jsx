@@ -41,7 +41,9 @@ export default function SearchParties() {
         );
         setFilteredParties(results);
     };
-
+    const handleParticipate = (partyId) => {
+        alert(`Vous avez rejoint la soirée avec l'ID : ${partyId}`);
+    };
     return (
         <div className="container mx-auto px-4 py-12">
             <h1 className="text-3xl font-bold mb-8 text-center">Rechercher une soirée</h1>
@@ -64,6 +66,13 @@ export default function SearchParties() {
                                     <strong>Date :</strong> {party.date}
                                 </p>
                                 <p className="mt-2 text-gray-600">{party.description}</p>
+                                <p className="mt-2 text-gray-600">{party.description}</p>
+                                <button
+                                    onClick={() => handleParticipate(party.id)}
+                                    className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                                >
+                                    Participer
+                                </button>
                             </CardContent>
                         </Card>
                     ))

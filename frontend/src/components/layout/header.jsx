@@ -19,6 +19,9 @@ export default function Header() {
                 <a href="/createParty" className="text-sm font-medium hover:underline underline-offset-4">
                     Organiser
                 </a>
+                <a href="/listPartys" className="text-sm font-medium hover:underline underline-offset-4">
+                    Liste des soirées
+                </a>
                 <a href="/login" className="text-sm font-medium hover:underline underline-offset-4">
                     Connexion
                 </a>
