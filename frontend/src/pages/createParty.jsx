@@ -80,6 +80,9 @@ export default function CreatePartyPage() {
                     </div>
                 )}
                 <Button type="submit">Créer la soirée</Button>
+                <Button type="submit">Modifier la soirée</Button>
+                <Button type="submit">Supprimer la soirée</Button>
+
             </form>
         </div>
     )

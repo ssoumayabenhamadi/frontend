@@ -5,7 +5,7 @@ export default function Search({ onSearch }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        onSearch(searchTerm); // Appelle la fonction de recherche passée en prop
+        onSearch(searchTerm);
     };
 
     return (
