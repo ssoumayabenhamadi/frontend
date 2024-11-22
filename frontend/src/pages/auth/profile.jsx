@@ -1,10 +1,12 @@
 import { useState } from 'react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
+import { Button } from "../../components/ui/Button"
+import { Input } from "../../components/ui/input"
+import Textarea from "../../components/ui/Textarea"
+import { Avatar} from "../../components/ui/avatar"
+import {AvatarImage} from "../../components/ui/AvatarImage";
+import {AvatarFallback} from "../../components/ui/AvatarFallback";
+import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card"
+import { Label } from "../../components/ui/label"
 import { Star } from 'lucide-react'
 
 export default function ProfilePage() {

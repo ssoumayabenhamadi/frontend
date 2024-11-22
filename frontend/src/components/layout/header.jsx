@@ -22,6 +22,9 @@ export default function Header() {
                 <a href="/login" className="text-sm font-medium hover:underline underline-offset-4">
                     Connexion
                 </a>
+                <a href="/auth/profile" className="text-sm font-medium hover:underline underline-offset-4">
+                    Profil
+                </a>
             </nav>
         </header>
     );
