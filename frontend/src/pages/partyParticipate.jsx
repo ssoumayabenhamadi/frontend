@@ -4,8 +4,11 @@ import { Label } from "../components/ui/label";
 import { Button } from "../components/ui/Button";
 import Header from "../components/layout/header";
 import { participate } from "../api/participe";
+import { useNavigate } from "react-router-dom";
 
 export default function PartyParticipation() {
+    const navigate = useNavigate();
+
     const [formData, setFormData] = useState({
         userId: "",
         eventId: "",
@@ -36,6 +39,10 @@ export default function PartyParticipation() {
             );
             if (response.success) {
                 setSuccessMessage(response.message);
+                // Naviguer vers la page paiement
+                navigate("/payment", {
+                    state: { eventId: formData.eventId, userId: formData.userId },
+                });
             } else {
                 setErrorMessage(response.message);
             }
