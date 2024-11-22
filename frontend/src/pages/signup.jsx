@@ -3,9 +3,12 @@ import { Label } from '../components/ui/label';
 import { Button } from '../components/ui/Button';
 
 import React from "react"
+import Header from '../components/layout/header';
 
 export default function Signup() {
     return (
+        <>
+        <Header />
         <div className="container mx-auto px-4 py-12">
             <h1 className="text-2xl font-bold">Inscription</h1>
             <form className="mt-4">
@@ -20,5 +23,6 @@ export default function Signup() {
                 </Button>
             </form>
         </div>
+        </>
     );
 }

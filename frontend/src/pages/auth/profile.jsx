@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from "../../components/ui/Button"
 import { Input } from "../../components/ui/input"
 import Textarea from "../../components/ui/Textarea"
@@ -11,13 +11,36 @@ import { Star } from 'lucide-react'
 
 export default function ProfilePage() {
     const [user, setUser] = useState({
-        name: "Jean Dupont",
+        username: "Jean Dupont",
         email: "jean.dupont@example.com",
-        city: "Paris",
-        age: 28,
+        address : null,
+        dateOfBirth: 28,
         interests: ["Jeux de société", "Jeux vidéo", "Musique"],
-        rating: 4.5,
     })
+
+    const convertToList = (interestsString) => {
+        return interestsString.split(",").map((interest) => interest.trim());
+    };
+
+    const calculateAge = (dateOfBirth) => {
+        const today = new Date();
+        const birthDate = new Date(dateOfBirth);
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
+      
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+        }
+      
+        return age;
+      };
+
+    useEffect(() => {
+        let data = JSON.parse(localStorage.getItem('userData'))
+        data.dateOfBirth = calculateAge(data.dateOfBirth);        
+        data.interests = convertToList(data.interests)
+        setUser(data)
+    }, [])
 
     return (
         <div className="container mx-auto px-4 py-8">
@@ -29,16 +52,16 @@ export default function ProfilePage() {
                         </CardHeader>
                         <CardContent className="flex flex-col items-center">
                             <Avatar className="w-32 h-32 mb-4">
-                                <AvatarImage src="/placeholder-avatar.jpg" alt={user.name} />
-                                <AvatarFallback>{user.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                                <AvatarImage src="/placeholder-avatar.jpg" alt={user.username} />
+                                <AvatarFallback>{user.username.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                             </Avatar>
-                            <h2 className="text-2xl font-bold mb-2">{user.name}</h2>
+                            <h2 className="text-2xl font-bold mb-2">{user.username}</h2>
                             <div className="flex items-center mb-4">
                                 <Star className="w-5 h-5 text-yellow-400 mr-1" />
-                                <span>{user.rating.toFixed(1)}</span>
+                                <span>4,5</span>
                             </div>
                             <p className="text-gray-600 mb-2">{user.city}</p>
-                            <p className="text-gray-600 mb-4">{user.age} ans</p>
+                            <p className="text-gray-600 mb-4">{user.dateOfBirth} ans</p>
                             <div className="flex flex-wrap gap-2">
                                 {user.interests.map((interest, index) => (
                                     <span key={index} className="bg-primary text-primary-foreground px-2 py-1 rounded-full text-sm">
@@ -57,8 +80,8 @@ export default function ProfilePage() {
                         <CardContent>
                             <form className="space-y-4">
                                 <div>
-                                    <Label htmlFor="name">Nom</Label>
-                                    <Input id="name" value={user.name} onChange={(e) => setUser({...user, name: e.target.value})} />
+                                    <Label htmlFor="name">Username</Label>
+                                    <Input id="name" value={user.username} onChange={(e) => setUser({...user, username: e.target.value})} />
                                 </div>
                                 <div>
                                     <Label htmlFor="email">Email</Label>
@@ -66,11 +89,23 @@ export default function ProfilePage() {
                                 </div>
                                 <div>
                                     <Label htmlFor="city">Ville</Label>
-                                    <Input id="city" value={user.city} onChange={(e) => setUser({...user, city: e.target.value})} />
+                                    <Input id="city" value={user.address?.city} />
+                                </div>
+                                <div>
+                                    <Label htmlFor="city">Street</Label>
+                                    <Input id="city" value={user.address?.street} />
+                                </div>
+                                <div>
+                                    <Label htmlFor="city">Postal Code</Label>
+                                    <Input id="city" value={user.address?.postalCode} />
+                                </div>
+                                <div>
+                                    <Label htmlFor="city">Country</Label>
+                                    <Input id="city" value={user.address?.country} />
                                 </div>
                                 <div>
                                     <Label htmlFor="age">Âge</Label>
-                                    <Input id="age" type="number" value={user.age} onChange={(e) => setUser({...user, age: parseInt(e.target.value)})} />
+                                    <Input id="age" type="number" value={user.dateOfBirth} onChange={(e) => setUser({...user,  dateOfBirth: parseInt(e.target.value)})} />
                                 </div>
                                 <div>
                                     <Label htmlFor="interests">Centres d'intérêt</Label>
