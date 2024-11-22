@@ -22,8 +22,10 @@ export default function Signup() {
     const [success, setSuccess] = useState(false); // Indicateur de succès
 
     const convertDate = (dateString) => {
-        const [day, month, year] = dateString.split("/"); // Sépare jour, mois, année
-        return `${year}-${parseInt(month)}-${parseInt(day)}`; // Formate en yyyy-m-d
+        console.log(dateString);
+        
+        const [year, month, day] = dateString.split("-"); // Sépare jour, mois, année
+        return `${year}-${month}-${day}`; // Formate en yyyy-m-d
     };
 
 
@@ -34,6 +36,11 @@ export default function Signup() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log({
+            ...formData,
+            dateOfBirth: convertDate(formData.dateOfBirth),
+        });
+        
         try {
             const response = await signup({
                 ...formData,

@@ -26,7 +26,7 @@ export const login = async (username, password) => {
 
 export const signup = async (data) => {
   try {
-    const response = await axios.post(base_url + 'auth/signup', data.username, data.email, data.password, data.city, data);
+    const response = await axios.post(base_url + 'auth/signup', data);
 
     return {
       success: true,

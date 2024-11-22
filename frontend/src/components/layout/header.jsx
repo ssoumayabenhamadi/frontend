@@ -7,10 +7,10 @@ export default function Header() {
 
     useEffect(() => {
         const token = localStorage.getItem('authToken')
-        if(token)
-            setIsLogged(true)
-        else
+        if(token === undefined)
             setIsLogged(false)
+        else
+            setIsLogged(true)
     }, [])
     return (
         <header className="px-4 lg:px-6 h-14 flex items-center bg-white shadow-md">
