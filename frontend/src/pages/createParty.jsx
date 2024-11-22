@@ -3,10 +3,14 @@
 import { useState } from 'react'
 import { Button } from "../components/ui/Button"
 import { Input } from "../components/ui/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../components/ui/select"
-import { Textarea } from "@/components/ui/textarea"
-import { Switch } from "@/components/ui/switch"
-import { Label } from "@/components/ui/label"
+import { Select} from "../components/ui/select"
+import {SelectContent} from "../components/ui/SelectContent";
+import {SelectItem} from "../components/ui/SelectItem";
+import {SelectTrigger} from "../components/ui/SelectTrigger";
+import {SelectValue} from "../components/ui/SelectValue";
+import Textarea from "../components/ui/Textarea"
+import Switch from "../components/ui/Switch"
+import { Label } from "../components/ui/label"
 
 export default function CreatePartyPage() {
     const [isPaid, setIsPaid] = useState(false)

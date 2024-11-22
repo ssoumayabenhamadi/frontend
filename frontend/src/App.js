@@ -4,6 +4,7 @@ import Home from './pages/index';
 import FindParty from './pages/FindParty';
 import Login from './pages/login';
 import Signup from "./pages/signup";
+import CreatePartyPage from "./pages/createParty";
 function App() {
     return (
         <div className="App">
@@ -14,6 +15,7 @@ function App() {
                     <Route path="/search" element={<FindParty />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<Signup />} />
+                    <Route path="/createParty" element={<CreatePartyPage />} />
                 </Routes>
             </Router>
         </div>
