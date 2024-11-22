@@ -18,10 +18,10 @@ export default function Home() {
                                 Rejoignez des soirées passionnantes ou organisez la vôtre.
                             </p>
                             <div className="space-x-4">
-                                <a href="/FindParty" passHref>
+                                <a href="/search" passHref>
                                     <Button>Trouver une soirée</Button>
                                 </a>
-                                <a href="/frontend/frontend/src/pages/createParty" passHref>
+                                <a href="/createParty" passHref>
                                     <Button variant="outline">Organiser une soirée</Button>
                                 </a>
                             </div>
